@@ -6,25 +6,41 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.openqa.selenium.By;
 
 import java.util.List;
 import java.util.stream.Stream;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.texts;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$x;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byLinkText;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class TestMainPage extends TestBase{
 
     @Test
     @Tag("remote")
-    @DisplayName("Главная страница имеет заголовок")
+    @DisplayName("Проверить содержимое раздела новостей по фильтру")
     void mainPageTitleHaveText() {
         step("Открыть главную страницу и выполнить сверку", () -> {
             mainPage.openPage();
         });
+        step("Принять cookie", () -> {
+            mainPage.clickcookieButton();
+        });
+        step("Перейти в раздел Все новости", () -> {
+            mainPage.clickMedia();
+        });
+        step("Нажать на фильтр тем", () -> {
+             mainPage.clickFilterButton();
+        });
+        step("Проверить, что фильтр сработал и есть варианты для просмотра", () -> {
+            mainPage.checkValueInSearchMedia();
+        });
+
     }
 
     @Test
@@ -40,7 +56,7 @@ public class TestMainPage extends TestBase{
         step("Ввести qa",() -> {
             mainPage.inputValueInSearch("QA");
         });
-        step("Проверить, что в выводе есть вакансия",() -> {
+        step("Проверить, что в выводе есть вакансии",() -> {
             mainPage.checkValueInSearch();
         });
     }
@@ -98,7 +114,6 @@ public class TestMainPage extends TestBase{
     )
         {
         mainPage.openPage();
-
         $$x("//a[@class='main-solution']")
                 .filter(visible)
                 .shouldHave(texts(buttons));
