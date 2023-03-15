@@ -7,12 +7,14 @@ import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.attribute;
+import static com.codeborne.selenide.Condition.partialText;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class mainPage {
     private final String TITLE_TEXT = "IBS — ведущая российская IT-сервисная компания";
+    private final String MAIN_OFFICE_ADDRESS = "Россия, 127018, Москва, ул. Складочная, д. 3, стр. 1";
 
     private SelenideElement
             searchMainpage = $x("//div[@class='header-search']"),
@@ -20,7 +22,9 @@ public class mainPage {
             mediaButton = $(byText("Все новости")),
             cookieButton = $(".button--white"),
             selectListNews = $("a.tag:nth-child(3)"),
-            localeEng = $x("//div[a='Eng']");
+            localeEng = $x("//div[a='Eng']"),
+            ContactLabel = $x("//div[a='Контакты']"),
+            mainOfficeAddress = $(".contacts-map-popup");
     private ElementsCollection
             listSearchMedia =$$(".media-item__tag"),
             listSearch = $$x("//a[@class='tab']");
@@ -38,6 +42,11 @@ public class mainPage {
 
     public mainPage clickLocaleEng(){
         localeEng.click();
+        return this;
+    }
+
+    public mainPage clickContactInfo(){
+        ContactLabel.click();
         return this;
     }
 
@@ -67,6 +76,11 @@ public class mainPage {
         System.out.printf(String.valueOf(listSearchMedia.size()));
         listSearchMedia.shouldHave(sizeGreaterThan(0));
         listSearchMedia.shouldHave(CollectionCondition.containExactTextsCaseSensitive("МЕРОПРИЯТИЯ"));
+    return this;
+    }
+
+    public mainPage checkValueInAddressBlockMainOffice(){
+        mainOfficeAddress.shouldHave(partialText(MAIN_OFFICE_ADDRESS));
     return this;
     }
 

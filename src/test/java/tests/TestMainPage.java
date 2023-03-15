@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,6 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class TestMainPage extends TestBase{
-
     @Test
     @Tag("remote")
     @DisplayName("Проверить содержимое раздела новостей по фильтру")
@@ -117,6 +117,20 @@ public class TestMainPage extends TestBase{
         $$x("//a[@class='main-solution']")
                 .filter(visible)
                 .shouldHave(texts(buttons));
+    }
+
+    @Test
+    @DisplayName("Проверка наличия контактов главного офиса")
+    void checkInfo() {
+        step("Открыть главную страницу и выполнить сверку", () -> {
+            mainPage.openPage();
+        });
+        step("Нажать кнопку Контакты", () -> {
+            mainPage.clickContactInfo();
+        });
+        step("Главный офис должен иметь соответсвующий адрес", () -> {
+            mainPage.checkValueInAddressBlockMainOffice();
+        });
     }
 
 }
