@@ -124,9 +124,3 @@ Allure Уведомление в Telegram при помощи бота
 
 
 [![Watch the video](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/start.png)](https://youtu.be/5OZ32Tchgog)
-
-<iframe width="560" height="315"
-src="https://youtu.be/5OZ32Tchgog"
-frameborder="0"
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen></iframe>
