@@ -1,6 +1,6 @@
-###### Проект по автоматизации тестирования IBS
+## Проект по автоматизации тестирования IBS
 
-###### 🚀: Содержание:
+### 🚀: Содержание:
 
 ➠ Технологии и инструменты
 
@@ -18,11 +18,11 @@
 
 ➠ Видео примеры прохождения тестов
 
-###### 🧰: Технологии и инструменты
+### 🧰: Технологии и инструменты
 
 IDEA Java Github JUnit 5 Gradle Selenide Selenoid Allure Jenkins
 
-###### Реализованные проверки
+### Реализованные проверки
 
 💥: Тест 1
 ✓ Открыть сайт ibs.ru
@@ -56,7 +56,7 @@ IDEA Java Github JUnit 5 Gradle Selenide Selenoid Allure Jenkins
 Jenkins Jenkins job
 Jenkins
 
-###### 🐦: Параметры сборки в Jenkins:
+### 🐦: Параметры сборки в Jenkins:
 
 -Dbrowser (браузер, по умолчанию chrome)
 
@@ -66,34 +66,36 @@ Jenkins
 
 REMOTE_URL (Selenoid url, по умолчанию selenoid.autotests.cloud/wd/hub)
 
-🏗️: Запуск тестов 
+### 🏗️: Запуск тестов 
 
 Удаленный запуск:
 
-clean
+`clean
 test
 -Dbrowser=${Browser}
 -DbrowserVersion=${Browser_version}
--DbrowserSize=${Browser_size}
+-DbrowserSize=${Browser_size}`
 
 Примеры использования
 Выдать отчет:
 
 allure serve build/allure-results
-Allure Отчет в Allure report
+
+### Allure Отчет в Allure report
 
 💹: Основной отчет
-![report.png](C:\Users\natalya.saveleva\Pictures\allure_report.png)️
+![report.png](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/allure_report.png)️
 
 🧪: Тесты (последовательное выполнение)
 Allure Tests
-![report.png](C:\Users\natalya.saveleva\Pictures\suites.png)️
+![report.png](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/suites.png)️
 
 Allure Уведомление в Telegram при помощи бота
 
-![report.png](C:\Users\natalya.saveleva\Pictures\telegram_img.png)
+![report.png](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/telegram_img.png)
 
-Jenkins Видео прохождения тестов
+![report.png](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/img_1.png)
 
-<a href="https://youtu.be/5OZ32Tchgog" target="_blank"><img src="http://img.youtube.com/vi/ID_ВИДЕОРОЛИКА_НА_YOUTUBE/0.jpg"
-alt="Прохождение теста" width="240" height="180" border="10" /></a>
+###  💹: Jenkins Видео прохождения тестов
+
+[![Watch the video](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/start.png)](https://youtu.be/5OZ32Tchgog)
