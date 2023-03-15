@@ -118,7 +118,6 @@ Allure Уведомление в Telegram при помощи бота
 
 ![report.png](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/telegram_img.png)
 
-![report.png](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/img_1.png)
 
 ###  💹: Jenkins Видео прохождения тестов
 
