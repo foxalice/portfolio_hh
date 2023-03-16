@@ -50,6 +50,7 @@ public class TestMainPage extends TestBase{
     }
 
     @Test
+    @Tag("remote")
     @DisplayName("Проверка наличия контактов главного офиса")
     void checkInfo() {
         step("Открыть главную страницу и выполнить сверку", () -> {
@@ -64,7 +65,7 @@ public class TestMainPage extends TestBase{
     }
 
     @ParameterizedTest(name = "Проверка наличия блоков с информацией локаль RUS: {0}")
-    @Tag("BLOCKER")
+    @Tag("remote")
     @ValueSource(strings = {"Агропромышленность",
             "Газовая индустрия",
             "Государственные программы",
@@ -85,7 +86,7 @@ public class TestMainPage extends TestBase{
     }
 
     @ParameterizedTest(name = "Проверка наличия блоков с информацией локали ENG: {0}")
-    @Tag("BLOCKER")
+    @Tag("remote")
     @ValueSource(strings = {"Company at a glance",
             "Mission and Values",
             "Management Team",
