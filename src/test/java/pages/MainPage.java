@@ -41,7 +41,7 @@ public class MainPage {
     public MainPage openPage() {
         open("https://ibs.ru/");
         $("title").shouldHave(attribute("text", TITLE_TEXT));
-         return this;
+        return this;
     }
 
     public MainPage clickInSearch(){
@@ -78,19 +78,19 @@ public class MainPage {
     public MainPage checkValueInSearch(){
         System.out.printf(String.valueOf(listSearch.size()));
         listSearch.shouldHave(CollectionCondition.containExactTextsCaseSensitive("вакансии (1)"));
-    return this;
+        return this;
     }
 
     public MainPage checkValueInSearchMedia(){
         System.out.printf(String.valueOf(listSearchMedia.size()));
         listSearchMedia.shouldHave(sizeGreaterThan(0));
         listSearchMedia.shouldHave(CollectionCondition.containExactTextsCaseSensitive("МЕРОПРИЯТИЯ"));
-    return this;
+        return this;
     }
 
     public MainPage checkValueInAddressBlockMainOffice(){
         mainOfficeAddress.shouldHave(partialText(MAIN_OFFICE_ADDRESS));
-    return this;
+        return this;
     }
 
     public MainPage inputValueInSearch(String value) {
