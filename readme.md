@@ -108,18 +108,18 @@ allure serve build/allure-results
 ### Allure Отчет в Allure report
 
 💹: Основной отчет
-![report.png](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/allure_report.png)️
+![report.png](https://github.com/foxalice/portfolio_hh/tree/main/img/allure_report.png)️
 
 🧪: Тесты (последовательное выполнение)
 Allure Tests
-![report.png](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/suites.png)️
+![report.png](https://github.com/foxalice/portfolio_hh/tree/main/img/suites.png)️
 
 Allure Уведомление в Telegram при помощи бота
 
-![report.png](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/telegram_img.png)
+![report.png](https://github.com/foxalice/portfolio_hh/tree/main/img/telegram_img.png)
 
 
 ###  💹: Jenkins Видео прохождения тестов
 
 
-[![Watch the video](https://github.com/foxalice/portfolio_hh/blob/notification/src/test/resources/img/start.png)](https://youtu.be/5OZ32Tchgog)
+[![Watch the video](https://github.com/foxalice/portfolio_hh/tree/main/img/start.png)](https://youtu.be/5OZ32Tchgog)
