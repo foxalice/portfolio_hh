@@ -8,12 +8,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import pages.mainPage;
+import pages.MainPage;
 
 import java.util.Map;
 
 public class TestBase {
-    mainPage mainPage = new mainPage();
+    MainPage mainPage = new MainPage();
 
     @BeforeAll
     static void beforeAll() {

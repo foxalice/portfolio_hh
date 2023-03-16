@@ -3,16 +3,25 @@ package pages;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.Keys;
 
+import java.util.List;
+import java.util.stream.Stream;
+
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.partialText;
+import static com.codeborne.selenide.CollectionCondition.texts;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class mainPage {
+public class MainPage {
     private final String TITLE_TEXT = "IBS — ведущая российская IT-сервисная компания";
     private final String MAIN_OFFICE_ADDRESS = "Россия, 127018, Москва, ул. Складочная, д. 3, стр. 1";
 
@@ -29,64 +38,80 @@ public class mainPage {
             listSearchMedia =$$(".media-item__tag"),
             listSearch = $$x("//a[@class='tab']");
 
-    public mainPage openPage() {
+    public MainPage openPage() {
         open("https://ibs.ru/");
         $("title").shouldHave(attribute("text", TITLE_TEXT));
          return this;
     }
 
-    public mainPage clickInSearch(){
+    public MainPage clickInSearch(){
         searchMainpage.click();
         return this;
     }
 
-    public mainPage clickLocaleEng(){
+    public MainPage clickLocaleEng(){
         localeEng.click();
         return this;
     }
 
-    public mainPage clickContactInfo(){
+    public MainPage clickContactInfo(){
         ContactLabel.click();
         return this;
     }
 
-    public mainPage clickMedia(){
+    public MainPage clickMedia(){
         mediaButton.scrollIntoView(true);
         mediaButton.click();
         return this;
     }
 
-    public mainPage clickFilterButton(){
+    public MainPage clickFilterButton(){
         selectListNews.click();
         return this;
     }
 
-    public mainPage clickcookieButton(){
+    public MainPage clickcookieButton(){
         cookieButton.click();
         return this;
     }
 
-    public mainPage checkValueInSearch(){
+    public MainPage checkValueInSearch(){
         System.out.printf(String.valueOf(listSearch.size()));
         listSearch.shouldHave(CollectionCondition.containExactTextsCaseSensitive("вакансии (1)"));
     return this;
     }
 
-    public mainPage checkValueInSearchMedia(){
+    public MainPage checkValueInSearchMedia(){
         System.out.printf(String.valueOf(listSearchMedia.size()));
         listSearchMedia.shouldHave(sizeGreaterThan(0));
         listSearchMedia.shouldHave(CollectionCondition.containExactTextsCaseSensitive("МЕРОПРИЯТИЯ"));
     return this;
     }
 
-    public mainPage checkValueInAddressBlockMainOffice(){
+    public MainPage checkValueInAddressBlockMainOffice(){
         mainOfficeAddress.shouldHave(partialText(MAIN_OFFICE_ADDRESS));
     return this;
     }
 
-    public mainPage inputValueInSearch(String value) {
+    public MainPage inputValueInSearch(String value) {
         inputSearch.setValue(value);
         inputSearch.sendKeys(Keys.ENTER);
         return this;
     }
+
+//////
+
+    public void checkBlockSolutions(String testSolutions) {
+        $$x("//a[@class='main-solution']")
+                .filter(visible).shouldHave(CollectionCondition.itemWithText(testSolutions));
+    }
+
+    public void checkBlockSolutionsENG(String testSolutions) {
+        $$x("//span[@class='card__title']")
+                .filter(visible)
+                .shouldHave(CollectionCondition.itemWithText(testSolutions));
+    }
+
+
+
 }
