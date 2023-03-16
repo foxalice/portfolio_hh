@@ -95,10 +95,10 @@ REMOTE_URL (Selenoid url, по умолчанию selenoid.autotests.cloud/wd/hu
 Удаленный запуск:
 
 `clean
-test
--Dbrowser=${Browser}
--DbrowserVersion=${Browser_version}
--DbrowserSize=${Browser_size}`
+remote_test
+"-Dbrowser=${BROWSER}"
+"-DbrowserSize=${BROWSERSIZE}"
+"-Dbrowser_version=${BROWSER_VERSION}"`
 
 Примеры использования
 Выдать отчет:
