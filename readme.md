@@ -84,7 +84,7 @@ Jenkins
 
 -Dbrowser (браузер, по умолчанию chrome)
 
--Dbrowser_version (версия браузера, по умолчанию 99.)
+-Dbrowser_version (версия браузера, по умолчанию 100)
 
 -DbrowserSize (размер окна браузера, по умолчанию 1920x1080)
 
